@@ -1,22 +1,21 @@
 #ifndef WITHDRAW_TRANSACTION_H
 #define WITHDRAW_TRANSACTION_H
-#include "Transaction.h"
 
-class WithdrawTransaction : public Transaction
+#include "Transaction.h" // Include the base class header file
+
+class WithdrawTransaction : public Transaction // Define the WithdrawTransaction class as a subclass of Transaction
 {
-
 public:
-	WithdrawTransaction();
-	virtual ~WithdrawTransaction();
-	WithdrawTransaction(istream& istr);
-	int getAmount() const;
-	void setAmount(int amount);
-	string historyLog() const;
-	bool IsValid() const;
-
+    WithdrawTransaction(); // Default constructor
+    virtual ~WithdrawTransaction(); // Destructor
+    WithdrawTransaction(istream& istr); // Constructor that reads transaction data from a stream
+    int getAmount() const; // Getter for the transaction amount
+    void setAmount(int amount); // Setter for the transaction amount
+    string historyLog() const; // Function to generate a history log entry for the transaction
+    bool IsValid() const; // Function to check if the transaction is valid
 
 private:
-	int amount;
-
+    int amount; // Amount to withdraw
 };
+
 #endif

@@ -1,44 +1,56 @@
+// Include necessary header file
 #include "stdafx.h"
 #include "OpenAccountTransaction.h"
 
-
+// Default constructor definition
 OpenAccountTransaction::OpenAccountTransaction()
 {
 }
 
+// Parameterized constructor definition
 OpenAccountTransaction::OpenAccountTransaction(istream& istr)
 {
-	istr >> lastName;
-	istr >> firstName;
-	string ID;
-	istr >> ID;
-	int length = ID.length();
-	if (length != 4)
-	{
-		setValid(false);
-		cerr << "Error: Invalid Account Input" << endl;
-		
-	}
-	else
-	{
-		accountID = stoi(ID);
-		setValid(true);
-	}
+    // Read account details from the input stream
+    istr >> lastName;
+    istr >> firstName;
+    string ID;
+    istr >> ID;
+    int length = ID.length();
+
+    // Validate the account ID
+    if (length != 4)
+    {
+        // If the ID is invalid, set the transaction as invalid and print an error message
+        setValid(false);
+        cerr << "Error: Invalid Account Input" << endl;
+    }
+    else
+    {
+        // If the ID is valid, store it and set the transaction as valid
+        accountID = stoi(ID);
+        setValid(true);
+    }
 }
 
-bool OpenAccountTransaction::IsValid() const
-{
-	return valid;
-}
-
+// Destructor definition
 OpenAccountTransaction::~OpenAccountTransaction()
 {
 }
+
+// Getter function for the first name
 string OpenAccountTransaction::getFirstName() const
 {
-	return firstName;
+    return firstName;
 }
+
+// Getter function for the last name
 string OpenAccountTransaction::getLastName() const
 {
-	return lastName;
+    return lastName;
+}
+
+// Function to check if the transaction is valid
+bool OpenAccountTransaction::IsValid() const
+{
+    return valid;
 }

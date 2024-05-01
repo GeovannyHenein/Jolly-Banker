@@ -1,30 +1,34 @@
 #pragma once
 #include <iostream>
 #include <string>
-//#include "Transaction.h"
+//#include "Transaction.h" // Transaction class not included in this file
 #include <vector>
-//#include "Account.h"
+//#include "Account.h" // Account class not included in this file
 using namespace std;
-/*const int MAX_FUND_SIZE = 10;
-const string FUNDS[10] = {
-	"Money Market",
-	"Prime Money Market",
-	"Long-Term Bond",
-	"Short-Term Bond",
-	"Index Fund 500",
-	"Capital Value Fund",
-	"Growth Equity Fund",
-	"Growth Index Fund",
-	"Value Fund",
-	"Value Stock Index"
-};*/
+
+// Declaration of the Funds class
 class Funds
 {
-	//friend ostream& operator<<(ostream& os, const Funds& rhs);
+	//friend ostream& operator<<(ostream& os, const Funds& rhs); // Declaration of a friend function
+
 public:
+	// Constructor
 	Funds();
+	
+	// Destructor
 	~Funds();
-	/*Funds(int fundType);
+	
+	/* Commented-out member function declarations
+	   These member functions are currently commented out and likely represent 
+	   potential functionality related to the Funds class. They include:
+	   - Constructor(s) and Destructor
+	   - Functions for depositing and withdrawing funds
+	   - Functions for retrieving fund information
+	   - Functions for updating history
+	   - Function for getting the fund type
+	*/
+	/*
+	Funds(int fundType);
 	~Funds();
 	bool deposit(const int amount, const int fundType);
 	bool withdraw(const int amount, const int fundType, Transaction* trans);
@@ -32,83 +36,39 @@ public:
 	bool setFundType(const int fundType);
 	int getFundBalance(int index) const;
 	//bool updateHistory(Transaction update);
-	string getFundType() const;*/
+	string getFundType() const;
+	*/
+	
 private:
-	//string Type;
-	//int Balance;
-	//int fundBalance[MAX_FUND_SIZE];
-	//int fundType;
+	/* Commented-out data members
+	   These data members are currently commented out and may represent 
+	   potential attributes of the Funds class. They include:
+	   - Type: Possibly the type of fund
+	   - Balance: Possibly the total balance of the fund
+	   - fundBalance: Possibly an array or vector to store balances of different funds
+	   - fundType: Possibly an identifier for the type of fund
+	*/
+	/*
+	string Type;
+	int Balance;
+	int fundBalance[MAX_FUND_SIZE];
+	int fundType;
+	*/
+	
+	/* Commented-out code block
+	   This block contains conditional logic for handling fund deposits and withdrawals
+	   based on fund type. It appears to be an incomplete or discarded implementation
+	   of fund management logic. It includes if-else statements for different fund types
+	   and their corresponding actions.
+	*/
+	/*
+	else if (fundType == 0)
+	{
+		// Code block for fund type 0
+	}
+	else if (fundType == 2 || fundType == 3)
+	{
+		// Code block for fund types 2 and 3
+	}
+	*/
 };
-
-
-
-/*else if (fundType == 0)
-{
-int bal = fundBalance[0] + fundBalance[1];
-int remaining = 0;
-if ((fundBalance[0] < amount && fundBalance[1] < amount) && bal >= amount)
-{
-if (fundBalance[0] >= fundBalance[1])
-{
-
-remaining = amount - fundBalance[0];
-fundBalance[0] = 0;
-fundBalance[1] = remaining;
-}
-else if (fundBalance[0] <= fundBalance[1])
-{
-
-remaining = amount - fundBalance[1];
-//account.setAccountID();
-fundBalance[1] = 0;
-fundBalance[0] = remaining;
-
-}
-
-Balance -= amount;
-return true;
-}
-}
-
-else if (fundType == 2 || fundType == 3)
-{
-int bal = fundBalance[2] + fundBalance[3];
-int remaining = 0;
-
-if ((fundBalance[2] < amount && fundBalance[3] < amount) && bal >= amount)
-{
-
-if (fundBalance[2] >= fundBalance[3])
-{
-
-remaining = amount - fundBalance[2];
-fundBalance[2] = 0;
-fundBalance[3] = remaining;
-Balance -= amount;
-
-}
-else if (fundBalance[2] <= fundBalance[3])
-{
-remaining = amount - fundBalance[3];
-fundBalance[3] = 0;
-fundBalance[2] = remaining;
-Balance -= amount;
-
-}
-
-if (fundType == 2)
-{
-
-historyLog[2] = historyLog[2] + "   " + to_string(withdrawAmount->getAccountID()) + " " + to_string(fundBalance[2]) + "\n";
-historyLog[2] = historyLog[2] + "   " + to_string(withdrawAmount->getAccountID()) + " " + to_string(withdrawAmount->getAmount()) + "\n";
-}
-else if (fundType == 3)
-{
-
-}
-
-
-Balance -= amount;
-return true;
-}
-}*/
